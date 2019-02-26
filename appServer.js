@@ -23,9 +23,10 @@ io.on('connection', function(socket) {
 		console.log('message received')
 		console.log(data)
 	})
-	socket.on('IOData', function(data){
-		console.log('Data Received')
-		console.log(data)
+	socket.on('ledLit', function(data){
+		var ledStatus = data
+		// console.log("LED status is on: " + ledStatus)
+		io.emit('updateLEDStatus', ledStatus);
 	})
 
 })
